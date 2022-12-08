@@ -84,5 +84,10 @@ p{
 }
 input{
     width: 259px;
-    height: 102px;
+    font-weight: 700;
+    font-size: 36px;
+    color: #000000;
+    padding-left: 14px;
+    padding-top: 11px;
+    padding-bottom: 55px;
 }
