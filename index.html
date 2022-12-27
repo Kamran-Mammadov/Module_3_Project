@@ -31,34 +31,35 @@
         <main>
             <h1>Конвертер валют онлайн</h1>
             <div class="parts">
-                <div class="first-part">
+                <div class="left-part">
                     <p class="choose">У меня есть</p>
-                    <div class="currency">
-                        <button class="rub">RUB</button>
+                    <div class="curBtnLeft">
+                        <button class="rub bv">RUB</button>
                         <button class="usd">USD</button>
                         <button class="eur">EUR</button>
                         <button class="gbp">GBP</button>
                     </div>
-                    <div class="text-area">
-                        <input id="money" name="money" type="number">
-                        <span></span>
+                    <div class="textAreaLeft">
+                        <input id="money" name="money" type="number" value="5000">
+                        <p class="index"></p>
                     </div>
                 </div>
-                <div class="second-part">
+                <div class="right-part">
                     <p class="choose">Хочу приобрести</p>
-                    <div class="currency">
+                    <div class="curBtnRight">
                         <button class="rub">RUB</button>
-                        <button class="usd">USD</button>
+                        <button class="usd bv">USD</button>
                         <button class="eur">EUR</button>
                         <button class="gbp">GBP</button>
                 </div>
-                <div class="text-area">
+                <div class="textAreaRight">
                     <input id="money" name="money" type="number">
-                    <span></span>
+                    <p class="index"></p>
                 </div>
             </div>
             </div>
         </main>
+        <div class="message"></div>
     </div>
     <script src="main.js"></script>
 </body>
