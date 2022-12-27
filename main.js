@@ -33,31 +33,29 @@ function exchange1(e) {
         fetch(`https://api.exchangerate.host/latest?base=${e.target.textContent}&symbols=RUB,USD,EUR,GBP`)
             .then(res => res.json())
             .then(res => {
-                switch (bvRight.textContent) {
-                    case 'EUR':
-                        inputRight.value = (res.rates.EUR * inputLeft.value).toFixed(2);
-                        pLeft.textContent = `1 ${e.target.textContent} = ${(res.rates.EUR).toFixed(4)} EUR`;
-                        let revCur1 = 1 / (res.rates.EUR);
-                        pRight.textContent = `1 EUR  = ${revCur1.toFixed(4)} ${e.target.textContent}`;
-                        break;
-                    case 'USD':
-                        inputRight.value = (res.rates.USD * inputLeft.value).toFixed(2);
-                        pLeft.textContent = `1 ${e.target.textContent} = ${(res.rates.USD).toFixed(4)} USD`;
-                        let revCur2 = 1 / (res.rates.USD);
-                        pRight.textContent = `1 USD  = ${revCur2.toFixed(4)} ${e.target.textContent}`;
-                        break;
-                    case 'GBP':
-                        inputRight.value = (res.rates.GBP * inputLeft.value).toFixed(2);
-                        pLeft.textContent = `1 ${e.target.textContent} = ${(res.rates.GBP).toFixed(4)} GBP`;
-                        let revCur3 = 1 / (res.rates.GBP);
-                        pRight.textContent = `1 GBP  = ${revCur3.toFixed(4)} ${e.target.textContent}`;
-                        break;
-                    case 'RUB':
-                        inputRight.value = (res.rates.RUB * inputLeft.value).toFixed(2);
-                        pLeft.textContent = `1 ${e.target.textContent} = ${(res.rates.RUB).toFixed(4)} RUB`;
-                        let revCur4 = 1 / (res.rates.RUB);
-                        pRight.textContent = `1 RUB  = ${revCur4.toFixed(4)} ${e.target.textContent}`;
-                        break;
+                if (bvRight.textContent == 'RUB'){
+                    inputRight.value = (res.rates.RUB * inputLeft.value).toFixed(2);
+                    pLeft.textContent = `1 ${e.target.textContent} = ${(res.rates.RUB).toFixed(4)} RUB`;
+                    let revCur4 = 1 / (res.rates.RUB);
+                    pRight.textContent = `1 RUB  = ${revCur4.toFixed(4)} ${e.target.textContent}`;
+                }
+                if (bvRight.textContent == 'USD'){
+                    inputRight.value = (res.rates.USD * inputLeft.value).toFixed(2);
+                    pLeft.textContent = `1 ${e.target.textContent} = ${(res.rates.USD).toFixed(4)} USD`;
+                    let revCur2 = 1 / (res.rates.USD);
+                    pRight.textContent = `1 USD  = ${revCur2.toFixed(4)} ${e.target.textContent}`;
+                }
+                if (bvRight.textContent == 'EUR'){
+                    inputRight.value = (res.rates.EUR * inputLeft.value).toFixed(2);
+                    pLeft.textContent = `1 ${e.target.textContent} = ${(res.rates.EUR).toFixed(4)} EUR`;
+                    let revCur1 = 1 / (res.rates.EUR);
+                    pRight.textContent = `1 EUR  = ${revCur1.toFixed(4)} ${e.target.textContent}`;
+                }
+                if (bvRight.textContent == 'GBP'){
+                    inputRight.value = (res.rates.GBP * inputLeft.value).toFixed(2);
+                    pLeft.textContent = `1 ${e.target.textContent} = ${(res.rates.GBP).toFixed(4)} GBP`;
+                    let revCur3 = 1 / (res.rates.GBP);
+                    pRight.textContent = `1 GBP  = ${revCur3.toFixed(4)} ${e.target.textContent}`;
                 }
             })
             .catch(err=>{
@@ -80,31 +78,29 @@ function exchange2(e) {
         fetch(`https://api.exchangerate.host/latest?base=${bvLeft.textContent}&symbols=RUB,USD,EUR,GBP`)
             .then(res => res.json())
             .then(res => {
-                switch (e.target.textContent) {
-                    case 'EUR':
-                        inputRight.value = (res.rates.EUR * inputLeft.value).toFixed(2);
-                        pLeft.textContent = `1 ${bvLeft.textContent} = ${(data.rates.EUR).toFixed(4)} EUR`;
-                        let revCur5 = 1 / (res.rates.EUR);
-                        pRight.textContent = `1 EUR = ${revCur5.toFixed(4)} ${bvLeft.textContent}`;
-                        break;
-                    case 'USD':
-                        inputRight.value = (res.rates.USD * inputLeft.value).toFixed(2);
-                        pLeft.textContent = `1 ${bvLeft.textContent} = ${(data.rates.USD).toFixed(4)} USD`;
-                        let revCur6 = 1 / (res.rates.USD);
-                        pRight.textContent = `1 USD = ${revCur6.toFixed(4)} ${bvLeft.textContent}`;
-                        break;
-                    case 'GBP':
-                        inputRight.value = (res.rates.GBP * inputLeft.value).toFixed(2);
-                        pLeft.textContent = `1 ${bvLeft.textContent} = ${(data.rates.GBP).toFixed(4)} GBP`;
+                if (e.target.textContent == 'RUB'){
+                    inputRight.value = (res.rates.RUB * inputLeft.value).toFixed(2);
+                    pLeft.textContent = `1 ${bvLeft.textContent} = ${(res.rates.RUB).toFixed(4)} RUB`;
+                    let revCur8 = 1 / (res.rates.RUB);
+                    pRight.textContent = `1 RUB = ${revCur8.toFixed(4)} ${bvLeft.textContent}`;
+                }
+                if (e.target.textContent == 'USD'){
+                    inputRight.value = (res.rates.USD * inputLeft.value).toFixed(2);
+                    pLeft.textContent = `1 ${bvLeft.textContent} = ${(res.rates.USD).toFixed(4)} USD`;
+                    let revCur6 = 1 / (res.rates.USD);
+                    pRight.textContent = `1 USD = ${revCur6.toFixed(4)} ${bvLeft.textContent}`;
+                }
+                if (e.target.textContent == 'EUR'){
+                    inputRight.value = (res.rates.EUR * inputLeft.value).toFixed(2);
+                    pLeft.textContent = `1 ${bvLeft.textContent} = ${(res.rates.EUR).toFixed(4)} EUR`;
+                    let revCur5 = 1 / (res.rates.EUR);
+                    pRight.textContent = `1 EUR = ${revCur5.toFixed(4)} ${bvLeft.textContent}`;
+                }
+                if (e.target.textContent == 'GBP'){
+                    inputRight.value = (res.rates.GBP * inputLeft.value).toFixed(2);
+                        pLeft.textContent = `1 ${bvLeft.textContent} = ${(res.rates.GBP).toFixed(4)} GBP`;
                         let revCur7 = 1 / (res.rates.GBP);
                         pRight.textContent = `1 GBP = ${revCur7.toFixed(4)} ${bvLeft.textContent}`;
-                        break;
-                    case 'RUB':
-                        inputRight.value = (res.rates.RUB * inputLeft.value).toFixed(2);
-                        pLeft.textContent = `1 ${bvLeft.textContent} = ${(data.rates.RUB).toFixed(4)} RUB`;
-                        let revCur8 = 1 / (res.rates.RUB);
-                        pRight.textContent = `1 RUB = ${revCur8.toFixed(4)} ${bvLeft.textContent}`;
-                        break;
                 }
             })
             .catch(err=>{
